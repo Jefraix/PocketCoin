@@ -3,4 +3,29 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
+    <string name="price_text">Price</string>
+    <string name="marketcap_text">Market Cap</string>
+    <string name="volume_text">Volume</string>
+    <string name="perchange_text">Percent Change</string>
+    <string name="twentyfourh_text">24h</string>
+    <string name="oneh_text">1h</string>
+    <string name="sevend_text">7d</string>
+    <string name="watchlist_title">Watch List</string>
+    <string name="totalsupply_text">Total Supply</string>
+    <string name="settings_title">Settings</string>
+    <string name="details_title">Details</string>
+    <string name="allcoins_title">All Coins</string>
+    <string name="info_title">Info</string>
+    <string name="deleteconfirm_dialog">Are you sure you want to delete %s from your watch list?</string>
+    <string name="deletesuccess_dialog">%s removed from watch list</string>
+    <string name="addsuccess_dialog">%s added to watch list</string>
+    <string name="addcoin_text">Add to watch list</string>
+    <string name="yes_text">Yes</string>
+    <string name="cancel_text">Cancel</string>
+
+    <string name="coinlore_attribution">Powered by CoinLore</string>
+
+    <string name="no_connection">No Internet Connection</string>
+
 </resources>
