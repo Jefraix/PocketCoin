@@ -13,20 +13,13 @@
         <action
             android:id="@+id/action_navigation_watchlist_to_navigation_coindetail"
             app:destination="@id/navigation_coindetail" />
-        <action
-            android:id="@+id/action_navigation_watchlist_to_navigation_settings"
-            app:destination="@id/navigation_settings" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_allcoins"
         android:name="com.jaguiler.pocketcoin.ui.allcoins.CoinsFragment"
         android:label="@string/allcoins_title"
-        tools:layout="@layout/coins_fragment" >
-        <action
-            android:id="@+id/action_navigation_allcoins_to_navigation_settings"
-            app:destination="@id/navigation_settings" />
-    </fragment>
+        tools:layout="@layout/coins_fragment" />
 
     <fragment
         android:id="@+id/navigation_info"
@@ -34,19 +27,15 @@
         android:label="@string/info_title"
         tools:layout="@layout/info_fragment" >
         <action
-            android:id="@+id/action_navigation_info_to_navigation_settings"
-            app:destination="@id/navigation_settings" />
+            android:id="@+id/action_navigation_info_to_navigation_watchlist"
+            app:destination="@id/navigation_watchlist" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_coindetail"
         android:name="com.jaguiler.pocketcoin.ui.coindetail.CoinDetailFragment"
         android:label="@string/details_title"
-        tools:layout="@layout/coin_detail_fragment" >
-        <action
-            android:id="@+id/action_navigation_coindetail_to_navigation_settings"
-            app:destination="@id/navigation_settings" />
-    </fragment>
+        tools:layout="@layout/coin_detail_fragment" />
 
     <fragment
         android:id="@+id/navigation_settings"

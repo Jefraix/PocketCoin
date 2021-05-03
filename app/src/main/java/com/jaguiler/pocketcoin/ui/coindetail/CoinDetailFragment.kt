@@ -10,10 +10,6 @@ import com.jaguiler.pocketcoin.R
 
 class CoinDetailFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = CoinDetailFragment()
-    }
-
     private lateinit var viewModel: CoinDetailViewModel
 
     override fun onCreateView(

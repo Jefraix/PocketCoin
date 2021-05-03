@@ -6,4 +6,7 @@
     <color name="azure_blue_light">#FF8EAAD4</color>
     <color name="yellow_orange">#FFFFBF00</color>
     <color name="yellow_orange_light">#FFFFE082</color>
+    <color name="green">#FF1BFF00</color>
+    <color name="green_darker">#0E8700</color>
+    <color name="red">#FFFF0000</color>
 </resources>

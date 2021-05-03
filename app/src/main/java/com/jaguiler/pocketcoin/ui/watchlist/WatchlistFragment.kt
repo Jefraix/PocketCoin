@@ -10,10 +10,6 @@ import com.jaguiler.pocketcoin.R
 
 class WatchlistFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = WatchlistFragment()
-    }
-
     private lateinit var viewModel: WatchlistViewModel
 
     override fun onCreateView(

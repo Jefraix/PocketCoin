@@ -6,6 +6,7 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +18,7 @@ import androidx.navigation.ui.setupWithNavController
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.Theme_PocketCoin)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
@@ -31,6 +33,19 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
+            when(destination.id) {
+                R.id.navigation_watchlist, R.id.navigation_allcoins
+                    -> {
+                        supportActionBar?.show()
+                        navView.visibility = View.VISIBLE
+                    }
+                R.id.navigation_settings, R.id.navigation_info, R.id.navigation_coindetail
+                    -> {
+                        supportActionBar?.hide()
+                        navView.visibility = View.INVISIBLE
+                    }
+            }
+
             supportActionBar?.let {
                 it.title = when (destination.id) {
                     R.id.navigation_settings -> getString(R.string.settings_title)

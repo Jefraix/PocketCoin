@@ -10,23 +10,15 @@ import com.jaguiler.pocketcoin.R
 
 class CoinsFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = CoinsFragment()
+    private val viewModel: CoinsViewModel by lazy {
+        ViewModelProvider(this).get(CoinsViewModel::class.java)
     }
-
-    private lateinit var viewModel: CoinsViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.coins_fragment, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(CoinsViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
 }
