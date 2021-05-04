@@ -37,11 +37,12 @@
 
         <TextView
             android:id="@+id/coinname_textView"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="14sp"
+            android:textSize="12sp"
             app:layout_constraintEnd_toStartOf="@+id/namenicon_guideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -70,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:textColor="@color/white"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/namenicon_guideline"
             app:layout_constraintTop_toBottomOf="@+id/priceusd_textView"
@@ -110,7 +111,7 @@
             android:layout_marginStart="2dp"
             android:layout_marginTop="8dp"
             android:textColor="@color/green"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/hourchange_textView"
             app:layout_constraintTop_toBottomOf="@+id/percentchange_textView"
@@ -134,6 +135,7 @@
             android:layout_marginStart="2dp"
             android:layout_marginTop="8dp"
             android:textColor="@color/red"
+            android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/daychange_textView"
             app:layout_constraintTop_toBottomOf="@+id/percentchange_textView"
@@ -157,6 +159,7 @@
             android:layout_marginStart="2dp"
             android:layout_marginTop="8dp"
             android:textColor="@color/red"
+            android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/weekchange_textView"
             app:layout_constraintTop_toBottomOf="@+id/percentchange_textView"
@@ -170,7 +173,7 @@
             app:layout_constraintGuide_percent="0.85" />
 
         <ImageButton
-            android:id="@+id/removefromlist_imageButton"
+            android:id="@+id/addtolist_imageButton"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
