@@ -1,33 +1,39 @@
 package com.jaguiler.pocketcoin.ui.info
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.jaguiler.pocketcoin.R
 import com.jaguiler.pocketcoin.databinding.InfoFragmentBinding
+import com.jaguiler.pocketcoin.BuildConfig
+
 
 class InfoFragment : Fragment() {
 
-    private lateinit var viewModel: InfoViewModel
     private var binding: InfoFragmentBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         val bindingInfo = InfoFragmentBinding.inflate(inflater, container, false)
         binding = bindingInfo
 
         binding?.apply {
-            returnImageButton.setOnClickListener {
-                findNavController().navigate(R.id.action_navigation_info_to_navigation_watchlist)
-            }
+            appNameTextView.text = resources.getString(R.string.app_name)
+            appVersionTextView.text = BuildConfig.VERSION_NAME
         }
+
         return bindingInfo.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
     }
 
 }

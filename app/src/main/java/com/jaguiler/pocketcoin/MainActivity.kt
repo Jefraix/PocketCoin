@@ -10,10 +10,12 @@ import android.view.View
 import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.jaguiler.pocketcoin.ui.coindetail.CoinDetailFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -36,13 +38,11 @@ class MainActivity : AppCompatActivity() {
             when(destination.id) {
                 R.id.navigation_watchlist, R.id.navigation_allcoins
                     -> {
-                        supportActionBar?.show()
-                        navView.visibility = View.VISIBLE
+                        navView.setBackgroundColor(resources.getColor(R.color.azure_blue, this.theme))
                     }
                 R.id.navigation_settings, R.id.navigation_info, R.id.navigation_coindetail
                     -> {
-                        supportActionBar?.hide()
-                        navView.visibility = View.INVISIBLE
+                        navView.setBackgroundColor(resources.getColor(R.color.white, this.theme))
                     }
             }
 
@@ -60,6 +60,9 @@ class MainActivity : AppCompatActivity() {
         if (!isConnected())
             Toast.makeText(this, R.string.no_connection, Toast.LENGTH_LONG).show()
     }
+
+    override fun onSupportNavigateUp() =
+            Navigation.findNavController(this, R.id.nav_host_fragment).navigateUp()
 
     @Suppress("DEPRECATION")
     @SuppressLint("ObsoleteSdkInt")

@@ -19,10 +19,4 @@ class SettingsFragment : Fragment() {
         return inflater.inflate(R.layout.settings_fragment, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(SettingsViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
-
 }

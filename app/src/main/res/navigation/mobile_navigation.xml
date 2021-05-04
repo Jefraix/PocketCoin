@@ -19,23 +19,27 @@
         android:id="@+id/navigation_allcoins"
         android:name="com.jaguiler.pocketcoin.ui.allcoins.CoinsFragment"
         android:label="@string/allcoins_title"
-        tools:layout="@layout/coins_fragment" />
+        tools:layout="@layout/coins_fragment" >
+        <action
+            android:id="@+id/action_navigation_allcoins_to_navigation_coindetail"
+            app:destination="@id/navigation_coindetail" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_info"
         android:name="com.jaguiler.pocketcoin.ui.info.InfoFragment"
         android:label="@string/info_title"
-        tools:layout="@layout/info_fragment" >
-        <action
-            android:id="@+id/action_navigation_info_to_navigation_watchlist"
-            app:destination="@id/navigation_watchlist" />
-    </fragment>
+        tools:layout="@layout/info_fragment" />
 
     <fragment
         android:id="@+id/navigation_coindetail"
         android:name="com.jaguiler.pocketcoin.ui.coindetail.CoinDetailFragment"
         android:label="@string/details_title"
-        tools:layout="@layout/coin_detail_fragment" />
+        tools:layout="@layout/coin_detail_fragment" >
+        <action
+            android:id="@+id/action_navigation_coindetail_to_navigation_watchlist"
+            app:destination="@id/navigation_watchlist" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_settings"

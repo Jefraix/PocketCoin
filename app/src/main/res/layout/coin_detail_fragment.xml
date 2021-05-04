@@ -8,36 +8,12 @@
     android:background="@color/azure_blue"
     tools:context=".ui.coindetail.CoinDetailFragment">
 
-    <ImageButton
-        android:id="@+id/detail_return_imageButton"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:scaleType="fitXY"
-        android:src="@drawable/abc_vector_test"
-        app:layout_constraintBottom_toTopOf="@+id/return_guideline1"
-        app:layout_constraintEnd_toStartOf="@+id/return_guideline2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/return_button_desc" />
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/return_guideline1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.10" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/return_guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.18" />
+        app:layout_constraintGuide_percent="0.05" />
 
     <ImageView
         android:id="@+id/det_coinicon_imageView"
@@ -93,10 +69,10 @@
         android:id="@+id/furtherdetails_scrollview"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/further_details_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -117,6 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/rank_text"
+                android:textColor="@color/black"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -127,6 +104,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:textColor="@color/black"
                 android:textSize="22sp"
                 app:layout_constraintEnd_toEndOf="@+id/det_coinrank_textView"
                 app:layout_constraintStart_toStartOf="@+id/det_coinrank_textView"
@@ -139,9 +117,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:text="@string/perchange_text"
+                android:textColor="@color/black"
                 android:textSize="24sp"
-                app:layout_constraintStart_toStartOf="@id/det_coinrank_val_textView"
                 app:layout_constraintEnd_toEndOf="@id/det_coinrank_val_textView"
+                app:layout_constraintStart_toStartOf="@id/det_coinrank_val_textView"
                 app:layout_constraintTop_toBottomOf="@+id/det_coinrank_val_textView" />
 
             <LinearLayout
@@ -160,7 +139,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/oneh_text"
-                    android:textSize="22sp" />
+                    android:textSize="22sp"
+                    android:textColor="@color/black"/>
 
                 <TextView
                     android:id="@+id/det_oneh_val_textView"
@@ -177,6 +157,7 @@
                     android:id="@+id/det_twentyfourh_textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
                     android:textSize="22sp"
                     tools:text="@string/twentyfourh_text" />
 
@@ -195,6 +176,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
+                    android:textColor="@color/black"
                     android:text="@string/sevend_text"
                     android:textSize="22sp" />
 
@@ -214,6 +196,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
+                android:textColor="@color/black"
                 android:text="@string/marketcap_text"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="@+id/linearLayout"
@@ -225,6 +208,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:textColor="@color/black"
                 android:textSize="22sp"
                 app:layout_constraintEnd_toEndOf="@+id/det_marketcap_textView"
                 app:layout_constraintStart_toStartOf="@+id/det_marketcap_textView"
@@ -232,10 +216,11 @@
                 tools:text="$1,058,447,962,251.10" />
 
             <TextView
-                android:id="@+id/textView16"
+                android:id="@+id/det_day_volume_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
+                android:textColor="@color/black"
                 android:text="@string/volume_text"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="@+id/det_marketcap_val_textView"
@@ -243,58 +228,63 @@
                 app:layout_constraintTop_toBottomOf="@+id/det_marketcap_val_textView" />
 
             <TextView
-                android:id="@+id/textView17"
+                android:id="@+id/det_day_volume_val_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:textColor="@color/black"
                 android:textSize="22sp"
-                app:layout_constraintEnd_toEndOf="@+id/textView16"
-                app:layout_constraintStart_toStartOf="@+id/textView16"
-                app:layout_constraintTop_toBottomOf="@+id/textView16"
+                app:layout_constraintEnd_toEndOf="@+id/det_day_volume_textView"
+                app:layout_constraintStart_toStartOf="@+id/det_day_volume_textView"
+                app:layout_constraintTop_toBottomOf="@+id/det_day_volume_textView"
                 tools:text="$56,351,701,278" />
 
             <TextView
-                android:id="@+id/textView18"
+                android:id="@+id/det_csupply_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
+                android:textColor="@color/black"
                 android:text="@string/circsupply_text"
                 android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="@+id/textView17"
-                app:layout_constraintStart_toStartOf="@+id/textView17"
-                app:layout_constraintTop_toBottomOf="@+id/textView17" />
+                app:layout_constraintEnd_toEndOf="@+id/det_day_volume_val_textView"
+                app:layout_constraintStart_toStartOf="@+id/det_day_volume_val_textView"
+                app:layout_constraintTop_toBottomOf="@+id/det_day_volume_val_textView" />
 
             <TextView
-                android:id="@+id/textView19"
+                android:id="@+id/det_csupply_val_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:textColor="@color/black"
                 android:textSize="22sp"
-                app:layout_constraintEnd_toEndOf="@+id/textView18"
-                app:layout_constraintStart_toStartOf="@+id/textView18"
-                app:layout_constraintTop_toBottomOf="@+id/textView18"
+                app:layout_constraintEnd_toEndOf="@+id/det_csupply_textView"
+                app:layout_constraintStart_toStartOf="@+id/det_csupply_textView"
+                app:layout_constraintTop_toBottomOf="@+id/det_csupply_textView"
                 tools:text="18,697,565" />
 
             <TextView
-                android:id="@+id/textView20"
+                android:id="@+id/det_tsupply_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:textSize="24sp"
+                android:textColor="@color/black"
                 android:text="@string/totalsupply_text"
-                app:layout_constraintEnd_toEndOf="@+id/textView19"
-                app:layout_constraintStart_toStartOf="@+id/textView19"
-                app:layout_constraintTop_toBottomOf="@+id/textView19" />
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="@+id/det_csupply_val_textView"
+                app:layout_constraintStart_toStartOf="@+id/det_csupply_val_textView"
+                app:layout_constraintTop_toBottomOf="@+id/det_csupply_val_textView" />
 
             <TextView
-                android:id="@+id/textView21"
+                android:id="@+id/det_tsupply_val_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:textColor="@color/black"
                 android:textSize="22sp"
-                app:layout_constraintEnd_toEndOf="@+id/textView20"
-                app:layout_constraintStart_toStartOf="@+id/textView20"
-                app:layout_constraintTop_toBottomOf="@+id/textView20"
+                app:layout_constraintEnd_toEndOf="@+id/det_tsupply_textView"
+                app:layout_constraintStart_toStartOf="@+id/det_tsupply_textView"
+                app:layout_constraintTop_toBottomOf="@+id/det_tsupply_textView"
                 tools:text="18,697,565" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

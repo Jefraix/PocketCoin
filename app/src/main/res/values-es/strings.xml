@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PocketCoin</string>
+    <string name="rank_text">Posicion:</string>
+    <string name="price_text">Precio:</string>
+    <string name="marketcap_text">Tapa del mercado:</string>
+    <string name="volume_text">Volumen 24h:</string>
+    <string name="perchange_text">Porcentage:</string>
+    <string name="watchlist_title">Lista</string>
+    <string name="circsupply_text">Suministro Circulante:</string>
+    <string name="totalsupply_text">Suministro Total:</string>
+    <string name="settings_title">Configuracion</string>
+    <string name="details_title">Detalles</string>
+    <string name="allcoins_title">Monedas</string>
+    <string name="info_title">Informacion</string>
+    <string name="deleteconfirm_dialog">Remover %s permanentemente de tu lista?</string>
+    <string name="deletesuccess_dialog">%s ha sido removido</string>
+    <string name="addsuccess_dialog">%s agregado a lista</string>
+    <string name="removecoin_text">Remover</string>
+    <string name="yes_text">Confirmar</string>
+    <string name="cancel_text">Cancelar</string>
+    <string name="no_connection">Sin conexion</string>
+</resources>

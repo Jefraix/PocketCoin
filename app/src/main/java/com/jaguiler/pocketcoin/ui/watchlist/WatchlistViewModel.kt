@@ -26,7 +26,8 @@ class WatchlistViewModel(app: Application) : AndroidViewModel(app) {
     var coinMap: HashMap<Int, Coin> = HashMap()
 
     var biggerCoinList: MutableLiveData<Coinlist> = MutableLiveData()
-    //var coinArray: List<Coin> = emptyList()
+
+    var selectedCoin: MutableLiveData<Coin> = MutableLiveData()
 
     init {
         setIDs(arrayListOf())
@@ -50,6 +51,25 @@ class WatchlistViewModel(app: Application) : AndroidViewModel(app) {
     fun getIDs() = watchlistIDs.value
 
     fun get20CoinList() = biggerCoinList.value?.data
+
+    fun getClickedCoin(id: Int) {
+        val request: Call<List<Coin>> = coinApi.getCoinById(id)
+
+        request.enqueue(object : Callback<List<Coin>> {
+            override fun onResponse(call: Call<List<Coin>>, response: Response<List<Coin>>) {
+                if(response.isSuccessful) {
+                    val data = response.body()?.toList()
+                    val coin = data?.get(0)
+                    selectedCoin.postValue(coin)
+                }
+            }
+
+            override fun onFailure(call: Call<List<Coin>>, t: Throwable) {
+                Log.d(TAG, "Unable to fetch coin data")
+            }
+
+        })
+    }
 
     fun getCoin(id: Int) {
         val request: Call<List<Coin>> = coinApi.getCoinById(id)
