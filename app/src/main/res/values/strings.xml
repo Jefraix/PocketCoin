@@ -14,7 +14,8 @@
     <string name="details_title">Details</string>
     <string name="allcoins_title">All Coins</string>
     <string name="info_title">Info</string>
-    <string name="deleteconfirm_dialog">Are you sure you want to delete %s from your watch list?</string>
+    <string name="delete_alert">Remove Coin</string>
+    <string name="deleteconfirm_dialog">Are you sure you want to remove %s from your watch list?</string>
     <string name="deletesuccess_dialog">%s removed from watch list</string>
     <string name="addsuccess_dialog">%s added to watch list</string>
     <string name="addcoin_text" translatable="false">+</string>

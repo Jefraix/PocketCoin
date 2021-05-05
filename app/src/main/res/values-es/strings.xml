@@ -13,6 +13,7 @@
     <string name="details_title">Detalles</string>
     <string name="allcoins_title">Monedas</string>
     <string name="info_title">Informacion</string>
+    <string name="delete_alert">Remover moneda</string>
     <string name="deleteconfirm_dialog">Remover %s permanentemente de tu lista?</string>
     <string name="deletesuccess_dialog">%s ha sido removido</string>
     <string name="addsuccess_dialog">%s agregado a lista</string>

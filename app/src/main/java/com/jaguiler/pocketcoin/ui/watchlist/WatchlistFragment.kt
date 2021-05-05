@@ -1,5 +1,6 @@
 package com.jaguiler.pocketcoin.ui.watchlist
 
+import android.app.AlertDialog
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -57,6 +58,21 @@ class WatchlistFragment : Fragment() {
         for (id in viewModel.getIDs()!!) {
             Log.d(TAG, "Attempting fetch: $id")
             viewModel.getCoin(id)
+        }
+    }
+
+    private fun coinToDeleteAlert(coin: Coin) {
+        val msg = resources.getString(R.string.deleteconfirm_dialog, coin.name)
+        val builder = AlertDialog.Builder(context)
+        with(builder) {
+            setTitle(R.string.delete_alert)
+            setMessage(msg)
+            setPositiveButton(R.string.yes_text) { _, _ ->
+                viewModel.removeCoin(coin.id)
+                watchlistAdapter.updateWatchlist(viewModel.coinMap)
+            }
+            setNegativeButton(R.string.cancel_text, null)
+            show()
         }
     }
 
@@ -130,8 +146,7 @@ class WatchlistFragment : Fragment() {
             coinWeekChangeTextView.setTextColor(wColor)
 
             removeCoinButton.setOnClickListener {
-                viewModel.removeCoin(coin.id)
-                watchlistAdapter.updateWatchlist(viewModel.coinMap)
+                coinToDeleteAlert(coin)
             }
 
             val icon = when(coin.id) {

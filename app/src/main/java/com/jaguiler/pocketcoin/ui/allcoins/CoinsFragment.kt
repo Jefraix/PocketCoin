@@ -1,5 +1,6 @@
 package com.jaguiler.pocketcoin.ui.allcoins
 
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,6 +10,8 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -113,9 +116,16 @@ class CoinsFragment : Fragment() {
             coinDayChangeTextView.setTextColor(dColor)
             coinWeekChangeTextView.setTextColor(wColor)
 
+            addCoinButton.isVisible = true
             addCoinButton.setOnClickListener {
                 viewModel.addCoin(coin.id)
                 AllCoinsAdapter().updateCoinslist(viewModel.get20CoinList()!!)
+                context?.toast(resources.getString(R.string.addsuccess_dialog, coin.name))
+                addCoinButton.isVisible = false
+            }
+
+            if(viewModel.coinMap.containsKey(coin.id)){
+                addCoinButton.isVisible = false
             }
 
             val icon = when(coin.id) {
@@ -147,4 +157,8 @@ class CoinsFragment : Fragment() {
         }
     }
 
+}
+
+fun Context.toast(message: String, duration: Int = Toast.LENGTH_SHORT){
+    Toast.makeText(this, message , duration).show()
 }
