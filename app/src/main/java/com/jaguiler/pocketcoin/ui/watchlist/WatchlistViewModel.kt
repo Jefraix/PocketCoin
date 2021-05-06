@@ -5,10 +5,9 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.jaguiler.pocketcoin.ui.API.Coin
-import com.jaguiler.pocketcoin.ui.API.Coinlist
-import com.jaguiler.pocketcoin.ui.API.LoreService
+import com.jaguiler.pocketcoin.ui.api.Coin
+import com.jaguiler.pocketcoin.ui.api.Coinlist
+import com.jaguiler.pocketcoin.ui.api.LoreService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -31,8 +30,8 @@ class WatchlistViewModel(app: Application) : AndroidViewModel(app) {
 
     init {
         setIDs(arrayListOf())
-        addCoin(90)
-        addCoin(80)
+        //addCoin(90)
+        //addCoin(80)
     }
 
     fun addCoin(id: Int) {

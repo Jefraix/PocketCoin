@@ -21,4 +21,6 @@
     <string name="yes_text">Confirmar</string>
     <string name="cancel_text">Cancelar</string>
     <string name="no_connection">Sin conexion</string>
+    <string name="loading_watchlist_coins_text">Cargando lista…</string>
+    <string name="loading_all_coins_textView">Cargando lista…</string>
 </resources>

@@ -11,14 +11,14 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.jaguiler.pocketcoin.R
 import com.jaguiler.pocketcoin.databinding.WatchlistFragmentBinding
-import com.jaguiler.pocketcoin.ui.API.Coin
+import com.jaguiler.pocketcoin.ui.api.Coin
 
 private const val TAG = "WatchlistFragment"
 
@@ -34,12 +34,15 @@ class WatchlistFragment : Fragment() {
     ): View {
         val watchlistBinding = WatchlistFragmentBinding.inflate(inflater, container, false)
         binding = watchlistBinding
+
         return watchlistBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding?.apply {
+            watchlistProgressBar.isVisible = true
+            retrievingWatchlistTextView.isVisible = true
 
             fetchCoins()
 
@@ -51,6 +54,8 @@ class WatchlistFragment : Fragment() {
 
         viewModel.coinList.observe(viewLifecycleOwner, {
             watchlistAdapter.updateWatchlist(viewModel.coinMap)
+            binding?.watchlistProgressBar?.isVisible = false
+            binding?.retrievingWatchlistTextView?.isVisible = false
         })
     }
 
@@ -130,8 +135,11 @@ class WatchlistFragment : Fragment() {
         fun bind(coin: Coin) {
             this.coin = coin
             coinNameTextView.text = coin.name
-            coinPriceTextView.text = coin.price_usd.toString()
-            coinDayVolumeTextView.text = coin.volume24.toPlainString()
+
+            val price = "$" + String.format("%,.2f", coin.price_usd)
+            val volume = "$" + String.format("%,.2f", coin.volume24)
+            coinPriceTextView.text = price
+            coinDayVolumeTextView.text = volume
 
             val hColor = if (coin.percent_change_1h < 0.0) Color.RED else Color.GREEN
             val dColor = if (coin.percent_change_24h < 0.0) Color.RED else Color.GREEN

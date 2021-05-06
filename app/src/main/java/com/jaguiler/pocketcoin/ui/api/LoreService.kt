@@ -1,4 +1,4 @@
-package com.jaguiler.pocketcoin.ui.API
+package com.jaguiler.pocketcoin.ui.api
 
 import retrofit2.Call
 import retrofit2.http.GET

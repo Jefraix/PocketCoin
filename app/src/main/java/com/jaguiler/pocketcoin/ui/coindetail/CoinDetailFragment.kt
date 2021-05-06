@@ -7,17 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
 import com.jaguiler.pocketcoin.R
 import com.jaguiler.pocketcoin.databinding.CoinDetailFragmentBinding
-import com.jaguiler.pocketcoin.ui.API.Coin
+import com.jaguiler.pocketcoin.ui.api.Coin
 import com.jaguiler.pocketcoin.ui.watchlist.WatchlistViewModel
 
 class CoinDetailFragment : Fragment() {
 
     private var binding: CoinDetailFragmentBinding? = null
     private val viewModel: WatchlistViewModel by activityViewModels()
-    private lateinit var coin: Coin
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,12 +39,14 @@ class CoinDetailFragment : Fragment() {
 
     }
 
-    fun populateInfo(coin: Coin) {
+    private fun populateInfo(coin: Coin) {
         binding?.apply {
 
             detCoinnameTextView.text = coin.name
             detCoinacrTextView.text = coin.symbol
-            detPriceusdTextView.text = coin.price_usd.toString()
+
+            val price = "$" + String.format("%,f", coin.price_usd)
+            detPriceusdTextView.text = price
 
             val icon = when(coin.id) {
                 90 -> R.drawable.bitcoin_sym
@@ -90,10 +90,14 @@ class CoinDetailFragment : Fragment() {
             detTwentyfourhValTextView.setTextColor(dColor)
             detWeekValTextView.setTextColor(wColor)
 
-            detMarketcapValTextView.text = coin.market_cap_usd.toPlainString()
-            detDayVolumeValTextView.text = coin.volume24.toPlainString()
-            detCsupplyValTextView.text = coin.csupply.toPlainString()
-            detTsupplyValTextView.text = coin.tsupply.toPlainString()
+            val cap = "$" + String.format("%,.2f", coin.market_cap_usd)
+            detMarketcapValTextView.text = cap
+            val vol = "$" + String.format("%,.2f", coin.volume24)
+            detDayVolumeValTextView.text = vol
+            val csupply = "$" + String.format("%,.0f", coin.csupply)
+            detCsupplyValTextView.text = csupply
+            val tsupply = "$" + String.format("%,.0f", coin.tsupply)
+            detTsupplyValTextView.text = tsupply
 
         }
     }

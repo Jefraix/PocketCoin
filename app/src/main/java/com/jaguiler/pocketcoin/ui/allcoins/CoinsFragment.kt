@@ -18,7 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.jaguiler.pocketcoin.R
 import com.jaguiler.pocketcoin.databinding.CoinsFragmentBinding
-import com.jaguiler.pocketcoin.ui.API.Coin
+import com.jaguiler.pocketcoin.ui.api.Coin
 import com.jaguiler.pocketcoin.ui.watchlist.WatchlistViewModel
 
 class CoinsFragment : Fragment() {
@@ -39,6 +39,8 @@ class CoinsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding?.apply {
+            allcoinsProgressBar.visibility = View.VISIBLE
+            retrievingCoinsTextView.visibility = View.VISIBLE
 
             viewModel.getCoinRange(0, 20)
 
@@ -50,6 +52,9 @@ class CoinsFragment : Fragment() {
 
         viewModel.biggerCoinList.observe(viewLifecycleOwner, {
             allCoinsAdapter.updateCoinslist(viewModel.get20CoinList()!!)
+
+            binding?.allcoinsProgressBar?.visibility = View.GONE
+            binding?.retrievingCoinsTextView?.visibility = View.GONE
         })
     }
 
@@ -102,7 +107,9 @@ class CoinsFragment : Fragment() {
         fun bind(coin: Coin) {
             this.coin = coin
             coinNameTextView.text = coin.name
-            coinPriceTextView.text = coin.price_usd.toString()
+
+            val price = "$" + String.format("%,.2f", coin.price_usd)
+            coinPriceTextView.text = price
 
             val hColor = if (coin.percent_change_1h < 0.0) Color.RED else Color.GREEN
             val dColor = if (coin.percent_change_24h < 0.0) Color.RED else Color.GREEN

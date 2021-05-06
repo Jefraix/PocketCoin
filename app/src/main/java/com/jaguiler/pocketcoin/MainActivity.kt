@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 R.id.navigation_settings, R.id.navigation_info, R.id.navigation_coindetail
                     -> {
-                        navView.setBackgroundColor(resources.getColor(R.color.white, this.theme))
+                        navView.setBackgroundColor(resources.getColor(R.color.yellow_orange, this.theme))
                     }
             }
 

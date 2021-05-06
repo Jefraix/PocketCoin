@@ -33,5 +33,7 @@
     <string name="no_connection">No Internet Connection</string>
     <string name="circsupply_text">Circulating Supply:</string>
     <string name="totalsupply_text">Total Supply:</string>
+    <string name="loading_watchlist_coins_text">Retrieving Watchlist…</string>
+    <string name="loading_all_coins_textView">Retrieving coins…</string>
 
 </resources>

@@ -24,7 +24,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="8dp"
-            android:scaleType="fitCenter"
+            android:contentDescription="@string/coinicon_desc"
+            android:scaleType="fitXY"
             android:scaleX="1.1"
             android:scaleY="1.1"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -32,8 +33,7 @@
             app:layout_constraintEnd_toStartOf="@+id/namenicon_guideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/coinname_textView"
-            tools:srcCompat="@drawable/bitcoin_sym"
-            android:contentDescription="@string/coinicon_desc"/>
+            tools:srcCompat="@drawable/bitcoin_sym" />
 
         <TextView
             android:id="@+id/coinname_textView"
@@ -73,6 +73,7 @@
             android:textColor="@color/white"
             android:textSize="12sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/hourchange_textView"
             app:layout_constraintStart_toStartOf="@+id/namenicon_guideline"
             app:layout_constraintTop_toBottomOf="@+id/priceusd_textView"
             tools:text="$40,000" />
@@ -82,7 +83,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.35" />
+            app:layout_constraintGuide_percent="0.38" />
 
         <TextView
             android:id="@+id/percentchange_textView"
@@ -109,12 +110,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
-            android:layout_marginTop="8dp"
             android:textColor="@color/green"
             android:textSize="12sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/hourchange_textView"
             app:layout_constraintStart_toEndOf="@+id/hourchange_textView"
-            app:layout_constraintTop_toBottomOf="@+id/percentchange_textView"
             tools:text="0.19" />
 
         <TextView
@@ -133,12 +133,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
-            android:layout_marginTop="8dp"
             android:textColor="@color/red"
             android:textSize="12sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/daychange_textView"
             app:layout_constraintStart_toEndOf="@+id/daychange_textView"
-            app:layout_constraintTop_toBottomOf="@+id/percentchange_textView"
             tools:text="-1.27" />
 
         <TextView
@@ -157,12 +156,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
-            android:layout_marginTop="8dp"
             android:textColor="@color/red"
             android:textSize="12sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/weekchange_textView"
             app:layout_constraintStart_toEndOf="@+id/weekchange_textView"
-            app:layout_constraintTop_toBottomOf="@+id/percentchange_textView"
             tools:text="-0.93" />
 
         <androidx.constraintlayout.widget.Guideline
