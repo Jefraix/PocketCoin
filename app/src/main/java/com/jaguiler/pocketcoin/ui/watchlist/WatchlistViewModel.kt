@@ -51,6 +51,31 @@ class WatchlistViewModel(app: Application) : AndroidViewModel(app) {
 
     fun get20CoinList() = biggerCoinList.value?.data
 
+    fun idsToStringSet() : MutableSet<String> {
+        val ids = getIDs()
+        val idSet: MutableSet<String> = mutableSetOf()
+
+        if (ids != null) {
+            Log.d(TAG, "Key set size while making set: ${ids.size}")
+            for(id in ids) {
+                idSet.add(id.toString())
+            }
+        }
+        Log.d(TAG, "Made String set: $idSet")
+
+        return idSet
+    }
+
+    fun stringSetToIDs(idSet: Set<String>?) {
+        val newIDs: ArrayList<Int> = arrayListOf()
+        if (idSet != null) {
+            for(id in idSet) {
+                newIDs.add(id.toInt())
+            }
+        }
+         setIDs(newIDs)
+    }
+
     fun getClickedCoin(id: Int) {
         val request: Call<List<Coin>> = coinApi.getCoinById(id)
 

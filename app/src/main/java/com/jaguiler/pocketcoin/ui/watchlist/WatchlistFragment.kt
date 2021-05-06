@@ -1,6 +1,7 @@
 package com.jaguiler.pocketcoin.ui.watchlist
 
 import android.app.AlertDialog
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -14,6 +15,7 @@ import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.jaguiler.pocketcoin.R
@@ -27,6 +29,9 @@ class WatchlistFragment : Fragment() {
     private var binding: WatchlistFragmentBinding? = null
     val viewModel: WatchlistViewModel by activityViewModels()
     private val watchlistAdapter = WatchlistAdapter()
+    private val prefs: SharedPreferences by lazy {
+        PreferenceManager.getDefaultSharedPreferences(activity)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +39,8 @@ class WatchlistFragment : Fragment() {
     ): View {
         val watchlistBinding = WatchlistFragmentBinding.inflate(inflater, container, false)
         binding = watchlistBinding
+
+        viewModel.stringSetToIDs(prefs.getStringSet(WATCHLIST_COIN_IDS, null))
 
         return watchlistBinding.root
     }
@@ -75,6 +82,11 @@ class WatchlistFragment : Fragment() {
             setPositiveButton(R.string.yes_text) { _, _ ->
                 viewModel.removeCoin(coin.id)
                 watchlistAdapter.updateWatchlist(viewModel.coinMap)
+                with(prefs.edit()) {
+                    putStringSet(WATCHLIST_COIN_IDS, viewModel.idsToStringSet())
+                    Log.d(TAG, "Added ids to shared preferences after removing coin")
+                    apply()
+                }
             }
             setNegativeButton(R.string.cancel_text, null)
             show()
@@ -185,5 +197,9 @@ class WatchlistFragment : Fragment() {
             }
             coinIconImageView.setImageResource(icon)
         }
+    }
+
+    companion object {
+        const val WATCHLIST_COIN_IDS = "WATCHLIST_COIN_IDS"
     }
 }

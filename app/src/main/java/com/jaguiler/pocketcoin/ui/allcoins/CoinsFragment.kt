@@ -1,8 +1,10 @@
 package com.jaguiler.pocketcoin.ui.allcoins
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,18 +16,25 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.jaguiler.pocketcoin.R
 import com.jaguiler.pocketcoin.databinding.CoinsFragmentBinding
 import com.jaguiler.pocketcoin.ui.api.Coin
+import com.jaguiler.pocketcoin.ui.watchlist.WatchlistFragment
 import com.jaguiler.pocketcoin.ui.watchlist.WatchlistViewModel
+
+private const val TAG = "CoinsFragment"
 
 class CoinsFragment : Fragment() {
 
     private var binding: CoinsFragmentBinding? = null
     private val viewModel: WatchlistViewModel by activityViewModels()
     private val allCoinsAdapter = AllCoinsAdapter()
+    private val prefs: SharedPreferences by lazy {
+        PreferenceManager.getDefaultSharedPreferences(activity)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -127,6 +136,11 @@ class CoinsFragment : Fragment() {
             addCoinButton.setOnClickListener {
                 viewModel.addCoin(coin.id)
                 AllCoinsAdapter().updateCoinslist(viewModel.get20CoinList()!!)
+                with(prefs.edit()) {
+                    putStringSet(WatchlistFragment.WATCHLIST_COIN_IDS, viewModel.idsToStringSet())
+                    Log.d(TAG, "Put ids in sharedPreferences after adding coin")
+                    apply()
+                }
                 context?.toast(resources.getString(R.string.addsuccess_dialog, coin.name))
                 addCoinButton.isVisible = false
             }
